@@ -5,7 +5,6 @@ from openai import OpenAI
 load_dotenv()
 
 api_key = os.getenv('OPENAI_API_KEY')
-print(f"Loaded API Key: {api_key}")  
 
 if api_key:
     print("API Key loaded succesfully")

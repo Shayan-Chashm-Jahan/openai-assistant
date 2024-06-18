@@ -1,12 +1,15 @@
 import os
-from openai import OpenAI
+from openai import OpenAI 
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
 api_key = os.getenv('OPENAI_API_KEY')
 
 client = OpenAI(api_key=api_key)
-conversation_history = []
+conversation_history = [
+        {"role": "system", "content": "You are an assistant specializing in movies and songs. Only respond to queries related to movies and songs. Avoid any other topics."}
+    ]
 
 def generate_response(conversation_history):
     try:
