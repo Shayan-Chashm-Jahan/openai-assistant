@@ -2,7 +2,7 @@
 .env
 
 # Ignore Streamlit secrets
-.streamlit/secrets.tom
+.streamlit/secrets.toml
 
 # virtual environment
 myenv/
