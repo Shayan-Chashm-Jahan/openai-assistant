@@ -1,18 +1,18 @@
 # env variables
-#.env
+.env
+
+# Ignore Streamlit secrets
+.streamlit/secrets.tom
 
 # virtual environment
-
 myenv/
 
 # IDE/editor specific files
-
 .vscode/
 .idea/
 .DS_Store
 
 # Other
-
 *.pyc
 *.pyo
 *.pyd
