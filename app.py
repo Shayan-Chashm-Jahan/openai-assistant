@@ -7,9 +7,6 @@ load_dotenv()
 api_key = st.secrets["OPENAI_API_KEY"]
 
 client = OpenAI(api_key=api_key)
-conversation_history = [
-        {"role": "system", "content": "You are an assistant specializing in movies and songs. Only respond to queries related to movies and songs. Avoid any other topics."}
-    ]
 
 def generate_response(conversation_history):
     try:
@@ -24,6 +21,17 @@ def generate_response(conversation_history):
         return str(e)
     
 if __name__ == "__main__":
+
+    #Streamlit UI
+
+    st.title("Art Assistant")
+    st.write("Type 'exit' to end the conversation")
+
+    if 'conversation_history' not in st.session_state:
+        st.session_state.conversation_history = [
+             {"role": "system", "content": "You are an assistant specializing in movies and songs. Only respond to queries related to movies and songs. Avoid any other topics."}
+        ]
+
     print("Welcome to the OpenAI Assistant. Type 'exit' to end the conversation")
 
     while True:
@@ -31,8 +39,8 @@ if __name__ == "__main__":
         if user_input.lower() == 'exit':
             break
 
-        conversation_history.append({"role": "user", "content": user_input})
-        response = generate_response(conversation_history)
+        st.session_state.conversation_history.append({"role": "user", "content": user_input})
+        response = generate_response(st.session_state.conversation_history)
 
-        conversation_history.append({"role": "assistant", "content": response})
+        st.session_state.conversation_history.append({"role": "assistant", "content": response})
         print(f"Assistant: {response}")
