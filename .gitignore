@@ -1,0 +1,18 @@
+# env variables
+.env
+
+# virtual environment
+
+myenv/
+
+# IDE/editor specific files
+
+.vscode/
+.idea/
+.DS_Store
+
+# Other
+
+*.pyc
+*.pyo
+*.pyd
